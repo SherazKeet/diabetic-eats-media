@@ -28,11 +28,10 @@ Automated daily Facebook Reel for the **Diabetic Eats** page (Metricool brand/bl
 After the plan ends, pick a new topic following the strategy above and add it to this table.
 
 ## Daily steps
-0. **Duplicate check + performance review (before choosing anything):**
-   - Pull the page's reels from the last 60 days with Metricool `getAnalyticsDataByMetrics` (brandId `8110748`, metrics `FBRE02` date, `FBRE05` caption, `FBRE10` views, `FBRE11` reach, `FBRE08` likes, `FBRE13` avg watch time). This includes reels posted by hand or by other tools, not just ones in `posted.md`.
-   - **No duplicates:** today's topic must not repeat (or closely overlap) any topic in `posted.md` OR any caption from that list. If it does, swap in a different topic and update the Plan.
-   - **Learn from metrics:** update the views/likes/watch-time columns in `posted.md` for reels older than 24 h. Then update the `## Learnings` section in `performance.md` with what's working: top 3 vs bottom 3 reels by views, which topic types, hook styles, scene types and lengths win. Keep it short (bullet points, max ~15 lines, replace stale points).
-   - **Apply it:** lean today's topic angle, hook and scene mix toward what performs best (while staying within the strategy). If the plan's next topic is a weak category, keep the date but reframe it with a stronger hook or format. Mention in the final summary what you changed because of metrics.
+0. **Duplicate check (before choosing anything):**
+   - Pull the page's reels from the last 60 days with Metricool `getAnalyticsDataByMetrics` (brandId `8110748`, metrics `FBRE02` date, `FBRE05` caption). This includes reels posted by hand or by other tools, not just ones in `posted.md`.
+   - Today's topic must not repeat or closely overlap any topic in `posted.md` OR any caption from that list. If it does, swap in a different topic and update the Plan.
+   - (Metrics-based improvements are paused until December — do not change topics or style based on views/likes yet.)
 1. `bash pipeline/setup.sh` (installs Kokoro TTS + model into `/home/claude/tts`).
 2. Write `scripts/YYYY-MM-DD.json` (examples: `scripts/2026-11-21.json`, `scripts/example-v2.json`). 7–8 scenes. Top level: `voice` `af_heart`, `speed` `1.1`, `bg_icons` (4–6 topic emoji that float in the background, e.g. ["🦃","🥧","🥦"]).
    Every scene: `say` (narration; numbers as words), `headline` (ALL CAPS, short — max 2 lines on `items` scenes), optional `sub` (no emoji), `accent` hex (#FFC93C yellow, #FF7A59 coral for warnings, #B6F35C green for good choices), optional `footer` on the last scene (`Educational only. Not medical advice.`).
