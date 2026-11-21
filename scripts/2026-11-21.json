@@ -1,0 +1,23 @@
+{
+  "voice": "af_heart",
+  "speed": 1.1,
+  "scenes": [
+    {"say": "Is honey actually healthier than sugar? If you have diabetes, the answer might surprise you.",
+     "headline": "HONEY VS SUGAR", "sub": "Which is better for blood sugar?", "emoji": ["🍯", "🆚", "🍬"], "accent": "#FFC93C"},
+    {"say": "Honey, maple syrup, agave, coconut sugar. They all sound natural.",
+     "headline": "\"NATURAL\" SWEETENERS", "emoji": ["🍯", "🍁", "🌵", "🥥"], "accent": "#FFC93C"},
+    {"say": "But your body counts every single one of them as added sugar.",
+     "headline": "THEY'RE ALL ADDED SUGAR", "emoji": ["⚠️"], "accent": "#FF7A59"},
+    {"say": "One tablespoon of honey has about seventeen grams of carbs. White sugar has about twelve.",
+     "headline": "CARBS PER TABLESPOON", "stat": [["HONEY", "17g"], ["SUGAR", "12g"]], "accent": "#FFC93C"},
+    {"say": "So spoon for spoon, honey can add even more carbs to your day.",
+     "headline": "MORE CARBS, NOT FEWER", "emoji": ["📈"], "accent": "#FF7A59"},
+    {"say": "Agave is lower on the glycemic index, but it's mostly fructose, and it's still added sugar.",
+     "headline": "AGAVE? STILL SUGAR", "emoji": ["🌵"], "accent": "#FF7A59"},
+    {"say": "The real win isn't switching sweeteners. It's using less of all of them.",
+     "headline": "USE LESS OF ALL OF THEM", "emoji": ["✅"], "accent": "#B6F35C"},
+    {"say": "Did you think honey was healthier? Tell us in the comments, and follow for more diabetes friendly food tips.",
+     "headline": "DID YOU THINK HONEY WAS HEALTHIER?", "sub": "Comment below + follow", "emoji": ["💬"], "accent": "#B6F35C",
+     "footer": "Educational only. Not medical advice."}
+  ]
+}
