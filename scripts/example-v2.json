@@ -1,0 +1,7 @@
+{"voice":"af_heart","speed":1.1,"bg_icons":["🦃","🥦","🥧","🍠","🥗"],
+"scenes":[
+{"say":"Thanksgiving with diabetes? You can still enjoy the feast.","headline":"YOUR THANKSGIVING PLATE","emoji":["🦃","🍽️"],"accent":"#FFC93C"},
+{"say":"Fill your plate with these first.","headline":"LOAD UP ON","items":[["✅","Turkey breast"],["✅","Green beans"],["✅","Salad"]],"accent":"#B6F35C"},
+{"say":"Swap mashed potatoes for cauliflower mash.","headline":"EASY SWAP","swap":[["🥔","Mashed potatoes"],["🥦","Cauliflower mash"]],"accent":"#B6F35C"},
+{"say":"One tablespoon of honey has about seventeen grams of carbs.","headline":"CARBS PER TABLESPOON","stat":[["HONEY","17g"],["SUGAR","12g"]],"accent":"#FFC93C"}
+]}

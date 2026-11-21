@@ -29,7 +29,13 @@ After the plan ends, pick a new topic following the strategy above and add it to
 
 ## Daily steps
 1. `bash pipeline/setup.sh` (installs Kokoro TTS + model into `/home/claude/tts`).
-2. Write `scripts/YYYY-MM-DD.json` (see `scripts/2026-11-21.json` for the format). 7–8 scenes; scene fields: `say` (narration), `headline` (ALL CAPS, short), optional `sub` (no emoji), `emoji` (1–4 Noto emoji) **or** `stat` ([[label, value], [label, value]]), `accent` hex, optional `footer` on the last scene (`Educational only. Not medical advice.`). Voice `af_heart`, speed `1.1`. Write numbers as words in `say`.
+2. Write `scripts/YYYY-MM-DD.json` (examples: `scripts/2026-11-21.json`, `scripts/example-v2.json`). 7–8 scenes. Top level: `voice` `af_heart`, `speed` `1.1`, `bg_icons` (4–6 topic emoji that float in the background, e.g. ["🦃","🥧","🥦"]).
+   Every scene: `say` (narration; numbers as words), `headline` (ALL CAPS, short — max 2 lines on `items` scenes), optional `sub` (no emoji), `accent` hex (#FFC93C yellow, #FF7A59 coral for warnings, #B6F35C green for good choices), optional `footer` on the last scene (`Educational only. Not medical advice.`).
+   Each scene uses ONE visual — **mix them, use at least 3 different types per reel**:
+   - `emoji`: 1–4 Noto emoji (bouncing, glowing) — good for hooks and CTAs.
+   - `items`: 2–4 rows of [icon, label] (✅/❌/food emoji, label ≤ 22 chars) revealed as they're spoken — good for lists/tips.
+   - `swap`: [[from_emoji, from_label], [to_emoji, to_label]] — animated "this → that" with ❌/✅ stamps.
+   - `stat`: [[label, value], [label, value]] — numbers count up (value like "17g").
 3. Render: `python3 pipeline/render.py scripts/YYYY-MM-DD.json out/diabetic-eats-YYYY-MM-DD.mp4`
 4. Quality check: extract 3 frames (`ffmpeg -ss <t> -i ... -frames:v 1 f.jpg`) and look at them; confirm duration 25–45 s, has audio, size < 25 MB. Fix and re-render if text overflows or looks wrong.
 5. Copy the MP4 to `reels/diabetic-eats-YYYY-MM-DD.mp4`, commit, push to `main`.
