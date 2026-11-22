@@ -16,9 +16,9 @@ Automated daily Facebook Reel for the **Diabetic Eats** page (Metricool brand/bl
 | Date | Topic |
 |---|---|
 | 2026-11-21 | Is honey healthier than sugar? (DONE) |
-| 2026-11-22 | Build a diabetes-friendly Thanksgiving plate |
+| 2026-11-22 | 4 Thanksgiving side swaps (cauliflower mash, roasted veg, etc.) — swapped in; original "Thanksgiving plate" overlapped the page's 2026-11-12 Plate Method reel |
 | 2026-11-23 | Eat in this order: veggies & protein first, carbs last |
-| 2026-11-24 | 4 holiday side swaps (cauliflower mash, roasted veg, etc.) |
+| 2026-11-24 | Game-day snacks: popcorn vs chips vs nuts — the smarter bowl |
 | 2026-11-25 | The 10-minute walk after dinner |
 | 2026-11-26 | Thanksgiving: pumpkin vs pecan vs apple pie — the smarter slice |
 | 2026-11-27 | "Is fruit bad for diabetes?" — berries, whole fruit, pair with protein |

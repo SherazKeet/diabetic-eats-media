@@ -1,0 +1,120 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "bg_icons": [
+  "🦃",
+  "🥔",
+  "🍠",
+  "🫛",
+  "🥦",
+  "🍞"
+ ],
+ "scenes": [
+  {
+   "say": "Thanksgiving sides can quietly add up to a lot of carbs. Try these four swaps.",
+   "headline": "4 THANKSGIVING SIDE SWAPS",
+   "sub": "Same feast, fewer carbs",
+   "emoji": [
+    "🦃",
+    "🍽️"
+   ],
+   "accent": "#FFC93C"
+  },
+  {
+   "say": "Swap one. Trade some mashed potatoes for cauliflower mash.",
+   "headline": "SWAP 1",
+   "swap": [
+    [
+     "🥔",
+     "Mashed potatoes"
+    ],
+    [
+     "🥦",
+     "Cauliflower mash"
+    ]
+   ],
+   "accent": "#B6F35C"
+  },
+  {
+   "say": "A cup of mashed potatoes has about thirty five grams of carbs. Cauliflower mash, about nine.",
+   "headline": "CARBS PER CUP",
+   "stat": [
+    [
+     "POTATO",
+     "35g"
+    ],
+    [
+     "CAULIFLOWER",
+     "9g"
+    ]
+   ],
+   "accent": "#FFC93C"
+  },
+  {
+   "say": "Love potatoes? Go half and half.",
+   "headline": "OR GO HALF AND HALF",
+   "emoji": [
+    "🥔",
+    "➕",
+    "🥦"
+   ],
+   "accent": "#B6F35C"
+  },
+  {
+   "say": "Swap two. Skip the marshmallows. Roast sweet potatoes, or top with a few nuts.",
+   "headline": "SWAP 2",
+   "swap": [
+    [
+     "🍠",
+     "Marshmallow yams"
+    ],
+    [
+     "🥜",
+     "Roasted + nuts"
+    ]
+   ],
+   "accent": "#B6F35C"
+  },
+  {
+   "say": "Three and four. Roasted green beans over the creamy casserole, and a whole grain roll over white.",
+   "headline": "SWAPS 3 AND 4",
+   "items": [
+    [
+     "❌",
+     "Bean casserole"
+    ],
+    [
+     "✅",
+     "Roasted green beans"
+    ],
+    [
+     "❌",
+     "White dinner roll"
+    ],
+    [
+     "✅",
+     "Whole grain roll"
+    ]
+   ],
+   "accent": "#B6F35C"
+  },
+  {
+   "say": "Sweet potatoes and rolls still have carbs, so keep portions small.",
+   "headline": "PORTIONS STILL MATTER",
+   "emoji": [
+    "🍽️"
+   ],
+   "accent": "#FF7A59"
+  },
+  {
+   "say": "Which side can't you give up? Comment below, and follow for more holiday tips.",
+   "headline": "WHICH SIDE CAN'T YOU GIVE UP?",
+   "sub": "Comment below + follow",
+   "emoji": [
+    "💬"
+   ],
+   "accent": "#B6F35C",
+   "footer": "Educational only. Not medical advice."
+  }
+ ]
+}
