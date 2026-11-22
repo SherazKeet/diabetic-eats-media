@@ -4,7 +4,7 @@ Automated daily Facebook Reel for the **Diabetic Eats** page (Metricool brand/bl
 
 ## Audience & strategy
 - **International audience (mainly US/UK), not Pakistan.** US spelling, US/UK foods and holidays.
-- Post at **11:00 PM Asia/Karachi** (= 1 PM New York, 6 PM London, 10 AM California).
+- Post at **6:30 PM Asia/Karachi** (= 8:30 AM New York, 1:30 PM London, 5:30 AM California). Changed from 11 PM on 2026-11-22 at Sheraz's request, based on Metricool's Facebook best-time data.
 - Mostly **food** content (the page is "Diabetic Eats"): swaps, myth-busters, plate building, food comparisons, label reading, eating order, walking after meals. Occasional health topic. Tie into US calendar (holidays, seasons).
 - 30–40 sec. **Hook in the first 2 seconds** (surprising claim or question, never a greeting). One idea per scene. End with an easy comment question + "follow for more".
 - Short caption: 2–3 lines, one question, 4–5 hashtags incl. `#DiabeticEats`. No long source lists.
@@ -45,8 +45,8 @@ After the plan ends, pick a new topic following the strategy above and add it to
 5. Copy the MP4 to `reels/diabetic-eats-YYYY-MM-DD.mp4`, commit, push to `main`.
 6. Confirm `https://raw.githubusercontent.com/SherazKeet/diabetic-eats-media/main/reels/diabetic-eats-YYYY-MM-DD.mp4` returns 200.
 7. Metricool `getScheduledPosts` for that date — skip if a reel is already scheduled for that slot (no duplicates).
-8. Metricool `createScheduledPost`: blogId `8110748`, `media` = [raw GitHub URL], providers facebook, `facebookData: {"type":"REEL","title":"<title>"}`, `autoPublish: true`, `draft: false`, publicationDate 23:00 Asia/Karachi, caption + firstCommentText.
-9. Verify with `getScheduledPosts`: media is on `static.metricool.com`, type REEL, autoPublish true, 23:00 Asia/Karachi, status PENDING.
+8. Metricool `createScheduledPost`: blogId `8110748`, `media` = [raw GitHub URL], providers facebook, `facebookData: {"type":"REEL","title":"<title>"}`, `autoPublish: true`, `draft: false`, publicationDate 18:30 Asia/Karachi, caption + firstCommentText.
+9. Verify with `getScheduledPosts`: media is on `static.metricool.com`, type REEL, autoPublish true, 18:30 Asia/Karachi, status PENDING.
 10. Append a line to `posted.md` (date, topic, Metricool post id, status) and push.
 
 PENDING = scheduled, not published. Never report success without step 9.
