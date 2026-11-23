@@ -1,0 +1,66 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "bg_icons": ["🥗", "🍗", "🥦", "🍞", "🍽️", "🥚"],
+ "scenes": [
+  {
+   "say": "Same meal, same food. But the order you eat it in could change your blood sugar.",
+   "headline": "SAME MEAL. DIFFERENT ORDER.",
+   "sub": "Does it really matter?",
+   "emoji": ["🍽️", "🤔"],
+   "accent": "#FFC93C"
+  },
+  {
+   "say": "Try this. Eat your veggies and protein first, and save the carbs for last.",
+   "headline": "THE ORDER",
+   "items": [
+    ["🥦", "1. Veggies first"],
+    ["🍗", "2. Then protein"],
+    ["🍞", "3. Carbs last"]
+   ],
+   "accent": "#B6F35C"
+  },
+  {
+   "say": "In a small Weill Cornell study, eleven adults with type two diabetes ate the same meal two ways.",
+   "headline": "THE STUDY",
+   "sub": "Small study, Diabetes Care 2015",
+   "emoji": ["🔬", "🍽️"],
+   "accent": "#FFC93C"
+  },
+  {
+   "say": "When veggies and protein came first, blood sugar was about thirty seven percent lower at one hour, and seventeen percent at two hours.",
+   "headline": "BLOOD SUGAR LOWER BY",
+   "stat": [["AT 1 HOUR", "37%"], ["AT 2 HOURS", "17%"]],
+   "accent": "#B6F35C"
+  },
+  {
+   "say": "So don't start with the bread basket. Start with the salad.",
+   "headline": "FIRST BITE SWAP",
+   "swap": [["🍞", "Bread basket first"], ["🥗", "Salad first"]],
+   "accent": "#B6F35C"
+  },
+  {
+   "say": "Carbs last still counts. Portions still matter, and the study was small.",
+   "headline": "CARBS STILL COUNT",
+   "emoji": ["⚖️"],
+   "accent": "#FF7A59"
+  },
+  {
+   "say": "Easy one for your Thanksgiving plate. Turkey and veggies first, stuffing and rolls last.",
+   "headline": "TRY IT THIS THURSDAY",
+   "items": [
+    ["🦃", "Turkey + veggies first"],
+    ["🥖", "Stuffing + rolls last"]
+   ],
+   "accent": "#FFC93C"
+  },
+  {
+   "say": "What do you usually eat first? Comment below, and follow for more.",
+   "headline": "WHAT DO YOU EAT FIRST?",
+   "sub": "Comment below + follow",
+   "emoji": ["💬"],
+   "accent": "#B6F35C",
+   "footer": "Educational only. Not medical advice."
+  }
+ ]
+}
