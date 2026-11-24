@@ -6,7 +6,7 @@ Automated daily Facebook Reel for the **Diabetic Eats** page (Metricool brand/bl
 - **International audience (mainly US/UK), not Pakistan.** US spelling, US/UK foods and holidays.
 - Post at **6:30 PM Asia/Karachi** (= 8:30 AM New York, 1:30 PM London, 5:30 AM California). Changed from 11 PM on 2026-11-22 at Sheraz's request, based on Metricool's Facebook best-time data.
 - Mostly **food** content (the page is "Diabetic Eats"): swaps, myth-busters, plate building, quick recipes, food comparisons, rankings, label reading, eating order, walking after meals. Occasional health topic. Tie into US calendar (holidays, seasons, game days).
-- **15–20 seconds, 4–5 scenes** (changed 2026-11-24: viewers were only watching 4–5 s of 35–40 s reels, which capped reach at ~200–300 views). Cut anything that isn't essential.
+- **30–40 seconds, 7–9 scenes** (Sheraz's choice on 2026-11-24, now that reels use cartoon characters and 5 styles; briefly tried 15–20 s). Every scene must earn its place: one idea per scene, and add a mid-reel re-hook around scene 4–5 (e.g. "But here's the surprise…", "Round three is the big one", "And number one might shock you") so people keep watching.
 - **Scene 1 is the hook and is fully on screen from the first frame** (the renderer does this automatically for scene 1). The first spoken words must be the hook: a surprising claim, a "stop doing X", a "which wins?", or a quick question. Never a greeting or intro.
 - **No ending "comment / follow" scene.** The last scene is the payoff: the strongest takeaway, the winner, or the #1 — so the reel feels complete and loops. Put the question and the share prompt in the caption instead.
 - Make it **shareable/saveable**: practical lists, swaps, rankings and "most people don't know" facts.
@@ -18,13 +18,13 @@ Automated daily Facebook Reel for the **Diabetic Eats** page (Metricool brand/bl
 ## Styles — pick ONE per reel based on the topic
 Every reel uses one of 5 styles (top-level `"style"` in the script). Each has its own look so the feed stays varied, while the font, captions, `@DiabeticEats` tag and broccoli mascot keep it on-brand. Preview scripts: `scripts/examples/style-*.json`.
 
-| Style | Use it for | Look | Scene recipe (4 scenes) |
+| Style | Use it for | Look | Scene recipe (7–9 scenes) |
 |---|---|---|---|
-| `talk` — **Cartoon Talk** | tips, habits, how-tos, explainers, health news | dark green | 1 `character` hook → 2 `items` or `swap` → 3 `stat` or `emoji`+faces → 4 `swap`/`character` payoff |
-| `fight` — **Food Fight** | "A vs B", "which is better?", swaps between two foods | red-vs-blue split, VS slam, boxing gloves | 1 `fight` intro (no bars: "A versus B. Which wins?") → 2 `fight` + 1 bar ("Round one…") → 3 `fight` + 1 bar ("Round two…") → 4 `fight` with `winner` (crown, confetti, loser turns grey & sad) |
-| `quiz` — **Myth or Fact** | myths, "is X bad?", "does X really…?", surprising facts | game-show blue with spotlight rays | 1 `quiz` ("True or false? …", 3-2-1 timer) → 2 `reveal` (MYTH/FACT stamp + one-line why) → 3 `items` or `stat` (the real fact) → 4 `character` payoff |
-| `kitchen` — **Plate Builder** | quick recipes, meal & snack ideas, breakfast/lunch/dinner plates, "what to eat instead" | warm cream kitchen, gingham tablecloth, chef-hat mascot | 1 `character` hook (food wears a chef hat) → 2 `plate` (3–4 items drop in + 2 badges) → 3 `steps` (recipe) or `emoji`+faces → 4 payoff |
-| `countdown` — **Top Countdown** | rankings, "top 3", best→worst, "3 mistakes", holiday food rankings | orange-to-pink sunset rays | 1 intro (`emoji`+faces: "Ranking X from worst to best") → 2 `rank` #3 → 3 `rank` #2 → 4 `rank` #1 (`"talk": true`, crown + confetti) |
+| `talk` — **Cartoon Talk** | tips, habits, how-tos, explainers, health news | dark green | 1 `character` hook → 2 `items` → 3 `swap` → 4 `stat` → 5 re-hook `emoji`+faces → 6 `items`/`swap` (how to do it) → 7 `character` payoff |
+| `fight` — **Food Fight** | "A vs B", "which is better?", swaps between two foods | red-vs-blue split, VS slam, boxing gloves | 1 `fight` intro (no bars: "A versus B. Which wins?") → 2–5 `fight` + 1 bar each ("Round one…" up to "Round four…"; let the loser win one round to keep it tense) → 6 `fight` with `winner` (crown, confetti, loser turns grey & sad) → 7 `swap` or `character` tip (how to enjoy the winner) |
+| `quiz` — **Myth or Fact** | myths, "is X bad?", "does X really…?", surprising facts | game-show blue with spotlight rays | Two rounds: 1 `quiz` → 2 `reveal` → 3 `items`/`stat` (why) → 4 `quiz` ("Round two…", a related claim) → 5 `reveal` → 6 `items`/`swap` (what to do instead) → 7 `character` payoff |
+| `kitchen` — **Plate Builder** | quick recipes, meal & snack ideas, breakfast/lunch/dinner plates, "what to eat instead" | warm cream kitchen, gingham tablecloth, chef-hat mascot | 1 `character` hook (food wears a chef hat) → 2 `swap` (the usual meal → the better one) → 3 `plate` (3–4 items drop in + 2 badges) → 4 `steps` (recipe, 3–4 steps) → 5 `stat` (why it works) → 6 `emoji`+faces tip/variation → 7 payoff ("Save this…") |
+| `countdown` — **Top Countdown** | rankings, "top 3", best→worst, "3 mistakes", holiday food rankings | orange-to-pink sunset rays | Top 5: 1 intro (`emoji`+faces: "Ranking X from worst to best") → 2–6 `rank` #5 → #1 (`"of": 5`; #1 gets `"talk": true`, crown + confetti) → 7 `character` or `items` takeaway |
 
 **How to pick:**
 1. Classify today's topic and use the matching style from the table. If a topic fits another style better with a small reframe, reframe it (e.g. "Is fruit bad?" → `quiz`; "pumpkin vs pecan vs apple pie" → `countdown`; "chips vs popcorn" → `fight`; "breakfast mistakes" → `kitchen` showing the better plate).
@@ -52,7 +52,7 @@ After the plan ends, pick a new topic following the strategy above, choose its s
    - Today's topic must not repeat or closely overlap any topic in `posted.md` OR any caption from that list. If it does, swap in a different topic and update the Plan.
    - (Automatic metrics-based changes are paused until December — follow the format rules above, but don't change topics or style on your own based on views/likes yet.)
 1. `bash pipeline/setup.sh` (installs Kokoro TTS, downloads the model and builds `kokoro-timed.onnx`, which gives phoneme timings for lip sync).
-2. **Pick the style** (see "Styles"), then write `scripts/YYYY-MM-DD.json` — start from `scripts/examples/style-<style>.json`. **4–5 scenes, 15–20 s total.** Keep each `say` to one short sentence (about 6–14 words).
+2. **Pick the style** (see "Styles"), then write `scripts/YYYY-MM-DD.json` — start from `scripts/examples/style-<style>.json`. **7–9 scenes, 30–40 s total.** Keep each `say` to one or two short sentences (about 8–18 words).
    Top level: `"style"`, `"voice": "af_heart"`, `"speed": 1.15`, `"mascot": "🥦"` (always — small talking broccoli in the top-left whenever no other character is talking; wears a chef hat in `kitchen`), `"bg_icons"` (4–6 topic emoji that float in the background).
    Every scene: `say` (narration; numbers as words), `headline` (ALL CAPS, short; letters, numbers and basic punctuation only — symbols like ≠ or arrows get replaced automatically), optional `sub` (no emoji), `accent` hex, optional `mood` (`happy` | `sad` | `fight` | `surprised`), optional `footer` on the last scene (`Educational only. Not medical advice.`).
    Accent colors: `talk` #B6F35C green / #FFC93C yellow / #FF7A59 coral; `fight`, `quiz`, `countdown` #FFD600 (default); `kitchen` (light background) #E07B28 orange / #3E9B4F green / #D64545 red — never pale colors in `kitchen`.
@@ -70,7 +70,7 @@ After the plan ends, pick a new topic following the strategy above, choose its s
    - `rank`: `{"n": 3, "of": 3, "item": "🥧", "mood": "sad"}` — big #n card + ladder; `n: 1` gets a crown + confetti; add `"talk": true` on #1.
    Faces: only on food emoji. Emoji that already have a face (🎃 🦃 animals, smileys) are animated without added eyes — prefer plain food emoji (use 🥧 for any pie). Foods with tuned face positions: 🥦🥕🍿🥑🍎🍅🥔🍋🫐🍞🥚🍓🧁🍩🍪🍊🍌🥜🍯🥗🍇🌽🥒🍗🥧🍠🫑🍐🍑🥛🧃🥤🍫🍰🥯🥐🍚🍝🍕🍔🍟🥥.
 3. Render: `python3 pipeline/render.py scripts/YYYY-MM-DD.json out/diabetic-eats-YYYY-MM-DD.mp4` (it warns if lip-sync timings are missing — then re-run setup.sh).
-4. Quality check: extract the first frame (`-ss 0`) plus the last frame of each scene and look at them; confirm the hook headline is fully visible at frame 0, nothing overlaps or overflows, faces sit on the food, duration 15–22 s (if longer, cut words or a scene and re-render), has audio, size < 25 MB.
+4. Quality check: extract the first frame (`-ss 0`) plus the last frame of each scene and look at them; confirm the hook headline is fully visible at frame 0, nothing overlaps or overflows, faces sit on the food, duration 30–42 s (if outside that, add or cut a scene and re-render), has audio, size < 25 MB.
 5. Copy the MP4 to `reels/diabetic-eats-YYYY-MM-DD.mp4`, commit, push to `main`.
 6. Confirm `https://raw.githubusercontent.com/SherazKeet/diabetic-eats-media/main/reels/diabetic-eats-YYYY-MM-DD.mp4` returns 200.
 7. Metricool `getScheduledPosts` for that date — skip if a reel is already scheduled for that slot (no duplicates).
