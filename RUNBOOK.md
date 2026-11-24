@@ -37,7 +37,7 @@ Every reel uses one of 5 styles (top-level `"style"` in the script). Each has it
 | 2026-11-21 | Is honey healthier than sugar? (DONE) | (old) |
 | 2026-11-22 | (DONE) 4 Thanksgiving side swaps (cauliflower mash, roasted veg, etc.) — swapped in; original "Thanksgiving plate" overlapped the page's 2026-11-12 Plate Method reel | (old) |
 | 2026-11-23 | Eat in this order: veggies & protein first, carbs last (DONE) | (old) |
-| 2026-11-24 | Game-day snacks: popcorn vs potato chips — which wins? | fight |
+| 2026-11-24 | Game-day snacks: popcorn vs potato chips — which wins? (DONE) | fight |
 | 2026-11-25 | The 10-minute walk after dinner | talk |
 | 2026-11-26 | Thanksgiving: ranking pumpkin vs pecan vs apple pie | countdown |
 | 2026-11-27 | "Is fruit bad for diabetes?" — myth or fact | quiz |

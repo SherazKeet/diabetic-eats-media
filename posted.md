@@ -5,3 +5,4 @@
 | 2026-11-21 | Is honey healthier than sugar? | (old) | 436864056 | PENDING for 23:00 PKT (verified) |  |  |  |
 | 2026-11-22 | 4 Thanksgiving side swaps (cauliflower mash, roasted sweet potatoes, roasted green beans, whole grain roll) | (old) | 437541599 (was 437528489; moved) | PENDING for 18:30 PKT (verified) |  |  |  |
 | 2026-11-23 | Eat in this order: veggies & protein first, carbs last (Weill Cornell / Diabetes Care 2015 study) | (old) | 438655204 | PENDING for 18:30 PKT (verified) |  |  |  |
+| 2026-11-24 | Game-day snacks: popcorn vs potato chips (3 cups air-popped vs 1 oz; popcorn wins 3–1, chips win carbs) | fight | 440147268 | PENDING for 18:30 PKT (verified) |  |  |  |
