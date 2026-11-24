@@ -1,0 +1,173 @@
+{
+ "style": "fight",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "mascot": "🥦",
+ "bg_icons": [
+  "🍿",
+  "🥔",
+  "🏈",
+  "🧂",
+  "📺"
+ ],
+ "scenes": [
+  {
+   "say": "Popcorn versus potato chips. Which snack wins game day?",
+   "headline": "POPCORN VS CHIPS",
+   "sub": "3 cups popcorn vs 1 oz chips",
+   "fight": {
+    "left": [
+     "🍿",
+     "POPCORN"
+    ],
+    "right": [
+     "🥔",
+     "CHIPS"
+    ]
+   },
+   "accent": "#FFD600",
+   "mood": "fight"
+  },
+  {
+   "say": "We're comparing three cups of air popped popcorn with one ounce of chips. Round one, fiber.",
+   "headline": "ROUND 1: FIBER",
+   "fight": {
+    "left": [
+     "🍿",
+     "POPCORN"
+    ],
+    "right": [
+     "🥔",
+     "CHIPS"
+    ],
+    "bars": [
+     [
+      "FIBER",
+      3.5,
+      1.3,
+      "g",
+      "high"
+     ]
+    ]
+   },
+   "accent": "#FFD600"
+  },
+  {
+   "say": "Round two, calories. Popcorn gives you a big bowl for about ninety three.",
+   "headline": "ROUND 2: CALORIES",
+   "fight": {
+    "left": [
+     "🍿",
+     "POPCORN"
+    ],
+    "right": [
+     "🥔",
+     "CHIPS"
+    ],
+    "bars": [
+     [
+      "CALORIES",
+      93,
+      155,
+      "",
+      "low"
+     ]
+    ]
+   },
+   "accent": "#FFD600"
+  },
+  {
+   "say": "But round three is a surprise. Chips have fewer carbs per serving!",
+   "headline": "ROUND 3: CARBS",
+   "fight": {
+    "left": [
+     "🍿",
+     "POPCORN"
+    ],
+    "right": [
+     "🥔",
+     "CHIPS"
+    ],
+    "bars": [
+     [
+      "CARBS",
+      19,
+      14,
+      "g",
+      "low"
+     ]
+    ]
+   },
+   "accent": "#FFD600",
+   "mood": "surprised"
+  },
+  {
+   "say": "Round four, fat. Chips are fried, with about ten times more.",
+   "headline": "ROUND 4: FAT",
+   "fight": {
+    "left": [
+     "🍿",
+     "POPCORN"
+    ],
+    "right": [
+     "🥔",
+     "CHIPS"
+    ],
+    "bars": [
+     [
+      "FAT",
+      1,
+      11,
+      "g",
+      "low"
+     ]
+    ]
+   },
+   "accent": "#FFD600"
+  },
+  {
+   "say": "Three rounds to one. The winner is air popped popcorn, a whole grain snack!",
+   "headline": "POPCORN WINS",
+   "fight": {
+    "left": [
+     "🍿",
+     "POPCORN"
+    ],
+    "right": [
+     "🥔",
+     "CHIPS"
+    ],
+    "winner": "left"
+   },
+   "accent": "#FFD600",
+   "mood": "happy"
+  },
+  {
+   "say": "Skip the movie theater butter. Use a light spray of oil and your favorite spices.",
+   "headline": "KEEP IT LIGHT",
+   "swap": [
+    [
+     "🧈",
+     "Buttery bucket"
+    ],
+    [
+     "🍿",
+     "Air popped + spices"
+    ]
+   ],
+   "faces": true,
+   "accent": "#FFD600"
+  },
+  {
+   "say": "Measure about three cups into a bowl, and enjoy the game.",
+   "headline": "3 CUPS. ONE BOWL.",
+   "character": "🍿",
+   "with": [
+    "🏈"
+   ],
+   "accent": "#FFD600",
+   "mood": "happy",
+   "footer": "Educational only. Not medical advice."
+  }
+ ]
+}
