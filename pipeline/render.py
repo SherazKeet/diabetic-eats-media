@@ -114,6 +114,67 @@ def text_img(txt, font, fill, shadow=True):
         _text_cache[key] = im
     return _text_cache[key]
 
+
+# ---------------- cartoon faces ----------------
+# (eye_y, mouth_y, eye_dx) as fractions of the icon box; tweak per emoji if a face sits badly
+FACE_POS = {"🥦": (0.36, 0.50, 0.15), "🥕": (0.50, 0.63, 0.12), "🍿": (0.66, 0.80, 0.14),
+            "🥑": (0.40, 0.53, 0.14), "🍎": (0.55, 0.72, 0.15), "🍅": (0.55, 0.72, 0.15),
+            "🥔": (0.48, 0.64, 0.15), "🍋": (0.50, 0.66, 0.15), "🫐": (0.55, 0.72, 0.14),
+            "🍞": (0.52, 0.70, 0.15), "🥚": (0.52, 0.70, 0.13), "🍓": (0.50, 0.66, 0.13),
+            "🧁": (0.66, 0.82, 0.13), "🍩": (0.40, 0.68, 0.17), "🍪": (0.48, 0.66, 0.15),
+            "🍊": (0.55, 0.72, 0.15), "🍌": (0.50, 0.64, 0.12), "🥜": (0.45, 0.62, 0.12),
+            "🍯": (0.62, 0.78, 0.14), "🥗": (0.50, 0.66, 0.15), "🍇": (0.50, 0.66, 0.14),
+            "🌽": (0.50, 0.65, 0.12), "🥒": (0.50, 0.64, 0.12), "🍗": (0.45, 0.60, 0.13),
+            "🥧": (0.55, 0.72, 0.15), "🍠": (0.50, 0.65, 0.14), "🫑": (0.55, 0.70, 0.14)}
+
+def add_face(img, t, level=0.0, seed=0, talk=False, mood="happy"):
+    """Draw googly eyes, blush and a (lip-synced) mouth onto a copy of an emoji image."""
+    im = img.copy(); w, h = im.size; S = min(w, h)
+    ey, my, edx = FACE_POS.get(getattr(img, "_emoji", ""), (0.55, 0.72, 0.15))
+    d = ImageDraw.Draw(im)
+    cx = w/2
+    er = S*0.085
+    # blink: ~0.13 s every ~2.6-3.4 s, offset per character
+    period = 2.6 + (seed % 5)*0.2
+    blink = ((t + seed*0.37) % period) < 0.13
+    look = math.sin(t*0.8 + seed)*er*0.25
+    ol = max(2, int(S*0.014))
+    for sx in (-1, 1):
+        ex = cx + sx*S*edx; eyy = h*ey
+        if blink:
+            d.arc([ex-er, eyy-er*0.6, ex+er, eyy+er*0.6], 200, 340, fill=(30, 25, 25), width=ol+1)
+        else:
+            d.ellipse([ex-er, eyy-er*1.12, ex+er, eyy+er*1.12], fill=(255, 255, 255), outline=(30, 25, 25), width=ol)
+            pr = er*0.52; px = ex + look; py = eyy + er*0.15
+            d.ellipse([px-pr, py-pr, px+pr, py+pr], fill=(25, 22, 22))
+            hr = pr*0.38
+            d.ellipse([px-pr*0.35-hr, py-pr*0.4-hr, px-pr*0.35+hr, py-pr*0.4+hr], fill=(255, 255, 255))
+        # blush
+        bx = ex + sx*er*0.9; by = h*ey + er*1.6
+        blush = Image.new("RGBA", im.size, (0, 0, 0, 0))
+        ImageDraw.Draw(blush).ellipse([bx-er*0.75, by-er*0.4, bx+er*0.75, by+er*0.4], fill=(255, 110, 140, 110))
+        im.alpha_composite(blush)
+    d = ImageDraw.Draw(im)
+    mx, myy = cx, h*my
+    mw = S*0.17
+    if talk and level > 0.08:
+        mh = S*(0.03 + 0.11*min(1.0, level))
+        d.ellipse([mx-mw*0.55, myy-mh*0.45, mx+mw*0.55, myy+mh*0.55], fill=(110, 25, 35), outline=(30, 25, 25), width=ol)
+        d.ellipse([mx-mw*0.3, myy+mh*0.05, mx+mw*0.3, myy+mh*0.5], fill=(240, 110, 130))
+    elif mood == "sad":
+        d.arc([mx-mw*0.5, myy, mx+mw*0.5, myy+S*0.12], 200, 340, fill=(30, 25, 25), width=ol+1)
+    else:
+        d.arc([mx-mw*0.5, myy-S*0.08, mx+mw*0.5, myy+S*0.06], 20, 160, fill=(30, 25, 25), width=ol+1)
+    return im
+
+def char_img(ch, size, t, level=0.0, seed=0, talk=False, mood="happy"):
+    base = emoji_img(ch, size)
+    base = base.copy(); base._emoji = ch
+    im = add_face(base, t, level, seed, talk, mood)
+    # squash & stretch (more when talking)
+    k = 0.035*math.sin(t*5.0 + seed) + (0.05*level if talk else 0)
+    return im.resize((max(1, int(im.width*(1+k))), max(1, int(im.height*(1-k)))), Image.BILINEAR)
+
 class Particles:
     def __init__(self, icons, seed):
         rnd = random.Random(seed)
@@ -128,7 +189,7 @@ class Particles:
             x = q["x"] + math.sin(t*0.9 + q["ph"])*q["sw"]
             paste_c(layer, emoji_img(q["e"], q["size"], 0.16), x, y)
 
-def render_scene(sc, idx, dur, total_before, total, out, bg_icons):
+def render_scene(sc, idx, dur, total_before, total, out, bg_icons, env=None, mascot=None):
     accent = hex2rgb(sc.get("accent", "#B6F35C"))
     nf = int(round(dur*FPS))
     tmp = out + ".part.mp4"
@@ -149,6 +210,9 @@ def render_scene(sc, idx, dur, total_before, total, out, bg_icons):
     fitem = ImageFont.truetype(FONT_BOLD, 60); fswap = ImageFont.truetype(FONT_BOLD, 44)
     ftag = ImageFont.truetype(FONT_BOLD, 40); ffoot = ImageFont.truetype(FONT_MED, 30)
     emojis = sc.get("emoji", [])
+    faces = sc.get("faces", False)
+    mood = sc.get("mood", "happy")
+    if env is None: env = np.zeros(nf)
     parts = Particles(bg_icons, idx*7 + 3)
     # headline word layout
     lh = fh.size*1.12
@@ -167,6 +231,7 @@ def render_scene(sc, idx, dur, total_before, total, out, bg_icons):
         parts.draw(frame, total_before + t)
         layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
         dr = ImageDraw.Draw(layer)
+        lvl = float(env[min(fi, len(env)-1)]) if len(env) else 0.0
         ta = t + (2.0 if idx == 0 else 0.0)  # scene 0: hook fully visible from frame 0
         # --- visual block ---
         top = 330
@@ -229,6 +294,23 @@ def render_scene(sc, idx, dur, total_before, total, out, bg_icons):
             if s1 > 0: paste_c(layer, emoji_img("❌", int(100*s1)), 250+150, cy-150)
             if s2 > 0: paste_c(layer, emoji_img("✅", int(100*s2)), W-250+150, cy-150)
             top_text = top + 420
+        elif sc.get("character"):
+            ch = sc["character"]; props = sc.get("with", [])
+            a = ease_out_back((ta - 0.05)/0.5)
+            cy = top + 210
+            gl = scaled(glow(accent), 1.0*(1 + 0.06*math.sin(ta*3.2))*ease_out(ta/0.5))
+            paste_c(layer, gl, W//2, cy)
+            if a > 0:
+                ci = char_img(ch, max(1, int(400*a)), ta, lvl, idx, True, mood)
+                hop = -abs(math.sin(ta*3.0))*18
+                paste_c(layer, ci, W//2, cy + hop)
+            for k, e in enumerate(props[:2]):
+                pa = ease_out_back((ta - 0.35 - k*0.2)/0.45)
+                if pa <= 0: continue
+                px = W//2 + (-1 if k == 0 else 1)*330
+                pi = emoji_img(e, max(1, int(170*pa))).rotate(math.sin(ta*2 + k)*10, resample=Image.BICUBIC, expand=True)
+                paste_c(layer, pi, px, cy + 90 + math.sin(ta*2.6 + k)*12)
+            top_text = top + 470
         elif emojis:
             n_e = len(emojis); size = 300 if n_e == 1 else (240 if n_e == 2 else 190 if n_e == 3 else 170)
             gap = 30; tot = n_e*size + (n_e-1)*gap; x0 = (W - tot)//2
@@ -240,13 +322,16 @@ def render_scene(sc, idx, dur, total_before, total, out, bg_icons):
                 if a <= 0: continue
                 bob = math.sin(ta*2.4 + k*1.3)*14
                 wob = math.sin(ta*1.8 + k)*6
-                ei = emoji_img(e, max(1, int(size*a)))
+                ei = char_img(e, max(1, int(size*a)), ta, lvl, idx*3+k, k == 0, mood) if faces else emoji_img(e, max(1, int(size*a)))
                 if abs(wob) > 0.5: ei = ei.rotate(wob, resample=Image.BICUBIC, expand=True)
                 cx = x0 + k*(size+gap) + size//2
                 paste_c(layer, ei, cx, top + 160 + bob)
             top_text = top + 400
         else:
             top_text = 520
+        if mascot and not sc.get("character") and not faces:
+            mi = char_img(mascot, 120, t + total_before, lvl, 99, True)
+            paste_c(layer, mi, 100, 200 + math.sin((t+total_before)*2.2)*5)
         # --- headline: word-by-word pop ---
         for wi, (w, col, xc, yt) in enumerate(hwords):
             a = ease_out_back((ta - 0.25 - wi*0.07)/0.35)
@@ -306,6 +391,14 @@ def main(script_path, out_path):
         a, sr = k.create(s["say"], voice=sc.get("voice", "af_heart"), speed=sc.get("speed", 1.1), lang="en-us")
         a = np.concatenate([np.zeros(int(sr*0.05), np.float32), a, np.zeros(int(sr*0.3), np.float32)])
         auds.append(a); durs.append(round(len(a)/sr*FPS)/FPS)
+    envs = []
+    for a, d in zip(auds, durs):
+        n = int(round(d*FPS)); hop = sr/FPS
+        e = np.array([np.sqrt(np.mean(a[int(i*hop):int((i+1)*hop)]**2)) if int(i*hop) < len(a) else 0.0 for i in range(n)])
+        ref = np.percentile(e[e > 0], 90) if np.any(e > 0) else 1.0
+        e = np.clip(e/ref, 0, 1)
+        e = np.maximum(e, np.concatenate([[0], e[:-1]])*0.6)  # smooth closing
+        envs.append(e)
     full = np.concatenate([np.pad(a, (0, max(0, int(d*sr)-len(a))))[:int(d*sr)] for a, d in zip(auds, durs)])
     sf.write(f"{work}/voice.wav", full, sr)
     bg_icons = sc.get("bg_icons", DEFAULT_BG_ICONS)
@@ -314,7 +407,7 @@ def main(script_path, out_path):
     for i, s in enumerate(sc["scenes"]):
         f = f"{work}/s{i:02d}.mp4"; files.append(f)
         if only is None or str(i) in only.split(","):
-            render_scene(s, i, durs[i], before, total, f, bg_icons)
+            render_scene(s, i, durs[i], before, total, f, bg_icons, envs[i], sc.get("mascot"))
         before += durs[i]
     with open(f"{work}/list.txt", "w") as fl:
         for f in files: fl.write(f"file '{os.path.abspath(f)}'\n")

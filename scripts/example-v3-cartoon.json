@@ -1,0 +1,8 @@
+{"voice":"af_heart","speed":1.15,"mascot":"🥦","bg_icons":["🍿","🥜","🥦"],
+"scenes":[
+{"say":"Hey! Stop grabbing the chips. I have a smarter snack for you.","headline":"STOP GRABBING CHIPS","character":"🥦","with":["🍿","🥜"],"accent":"#B6F35C"},
+{"say":"Popcorn and nuts are the heroes of game day.","headline":"SNACK HEROES","emoji":["🍿","🥜","🥕"],"faces":true,"accent":"#FFC93C"},
+{"say":"Potato chips? Not so much.","headline":"NOT SO MUCH","emoji":["🥔"],"faces":true,"mood":"sad","accent":"#FF7A59"},
+{"say":"Three cups of popcorn is a whole grain serving.","headline":"POPCORN WINS","items":[["✅","Whole grain"],["✅","High fiber"]],"accent":"#B6F35C"},
+{"say":"Apples, avocado, blueberries, all good friends.","headline":"GOOD FRIENDS","emoji":["🍎","🥑","🫐","🍅"],"faces":true,"accent":"#B6F35C"}
+]}
