@@ -1,4 +1,4 @@
-"""Diabetic Eats reel renderer (v2 — animated).
+"""Diabetic Eats reel renderer (v3 — animated, instant hook on scene 0).
 Usage: python3 render.py script.json out.mp4
 
 script.json:
@@ -167,16 +167,17 @@ def render_scene(sc, idx, dur, total_before, total, out, bg_icons):
         parts.draw(frame, total_before + t)
         layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
         dr = ImageDraw.Draw(layer)
+        ta = t + (2.0 if idx == 0 else 0.0)  # scene 0: hook fully visible from frame 0
         # --- visual block ---
         top = 330
         if sc.get("stat"):
             st = sc["stat"]; colw = (W-120)//len(st)
             for k, (lab, val) in enumerate(st):
-                a = ease_out_back((t - 0.15 - k*0.3)/0.45)
+                a = ease_out_back((ta - 0.15 - k*0.3)/0.45)
                 if a <= 0: continue
                 m = re.match(r"^(\d+)(.*)$", val)
                 if m:
-                    prog = ease_out((t - 0.2 - k*0.3)/1.0)
+                    prog = ease_out((ta - 0.2 - k*0.3)/1.0)
                     val_s = f"{int(round(int(m.group(1))*prog))}{m.group(2)}"
                 else: val_s = val
                 cx = 60 + colw*k + colw//2
@@ -190,11 +191,11 @@ def render_scene(sc, idx, dur, total_before, total, out, bg_icons):
             top_text = top + 500
         elif sc.get("items"):
             items = sc["items"]; n = len(items)
-            frac = clamp(t/max(0.1, speak_end))
+            frac = clamp(ta/max(0.1, speak_end))
             rowh = 150; y0 = 290
             for k, (ic, label) in enumerate(items):
                 start = 0.2 + (k/n)*speak_end*0.75
-                a = ease_out((t - start)/0.35)
+                a = ease_out((ta - start)/0.35)
                 if a <= 0: continue
                 y = y0 + k*rowh
                 x_off = int((1-a)*120)
@@ -202,14 +203,14 @@ def render_scene(sc, idx, dur, total_before, total, out, bg_icons):
                 pd.rounded_rectangle([0, 0, pill.width-1, pill.height-1], 34, fill=(255, 255, 255, int(34*a)))
                 pd.text((150, pill.height//2), label, font=fitem, fill=CREAM + (int(255*a),), anchor="lm")
                 layer.alpha_composite(pill, (70 + x_off, y))
-                pop = ease_out_back((t - start - 0.05)/0.4)
+                pop = ease_out_back((ta - start - 0.05)/0.4)
                 if pop > 0: paste_c(layer, emoji_img(ic, max(1, int(90*pop))), 70 + 75 + x_off, y + (rowh-24)//2)
             top_text = y0 + n*rowh + 40
             hlines_use = True
         elif sc.get("swap"):
             (fe, fl), (te, tl) = sc["swap"]
             cy = top + 170
-            a1 = ease_out_back((t-0.1)/0.45); a2 = ease_out_back((t-0.7)/0.45)
+            a1 = ease_out_back((ta-0.1)/0.45); a2 = ease_out_back((ta-0.7)/0.45)
             for (e, lab, cx, a) in [(fe, fl, 250, a1), (te, tl, W-250, a2)]:
                 if a <= 0: continue
                 card = Image.new("RGBA", (380, 380), (0, 0, 0, 0)); cd = ImageDraw.Draw(card)
@@ -219,26 +220,26 @@ def render_scene(sc, idx, dur, total_before, total, out, bg_icons):
                     cd.text((190, 270 + li*52), ln, font=fswap, fill=CREAM, anchor="mm")
                 paste_c(layer, scaled(card, a), cx, cy)
             # arrow slides in
-            aa = ease_out((t-0.45)/0.4)
+            aa = ease_out((ta-0.45)/0.4)
             if aa > 0:
-                ax = W//2 - 40 + int(math.sin(t*5)*10*aa)
+                ax = W//2 - 40 + int(math.sin(ta*5)*10*aa)
                 paste_c(layer, emoji_img("➡️", int(110*aa)), ax + 40, cy)
             # stamps
-            s1 = ease_out_back((t-1.2)/0.35); s2 = ease_out_back((t-1.5)/0.35)
+            s1 = ease_out_back((ta-1.2)/0.35); s2 = ease_out_back((ta-1.5)/0.35)
             if s1 > 0: paste_c(layer, emoji_img("❌", int(100*s1)), 250+150, cy-150)
             if s2 > 0: paste_c(layer, emoji_img("✅", int(100*s2)), W-250+150, cy-150)
             top_text = top + 420
         elif emojis:
             n_e = len(emojis); size = 300 if n_e == 1 else (240 if n_e == 2 else 190 if n_e == 3 else 170)
             gap = 30; tot = n_e*size + (n_e-1)*gap; x0 = (W - tot)//2
-            pulse = 1 + 0.06*math.sin(t*3.2)
-            gl = scaled(glow(accent), (0.9 if n_e == 1 else 1.25)*pulse*ease_out(t/0.5))
+            pulse = 1 + 0.06*math.sin(ta*3.2)
+            gl = scaled(glow(accent), (0.9 if n_e == 1 else 1.25)*pulse*ease_out(ta/0.5))
             paste_c(layer, gl, W//2, top + 160)
             for k, e in enumerate(emojis):
-                a = ease_out_back((t - 0.1 - k*0.15)/0.5)
+                a = ease_out_back((ta - 0.1 - k*0.15)/0.5)
                 if a <= 0: continue
-                bob = math.sin(t*2.4 + k*1.3)*14
-                wob = math.sin(t*1.8 + k)*6
+                bob = math.sin(ta*2.4 + k*1.3)*14
+                wob = math.sin(ta*1.8 + k)*6
                 ei = emoji_img(e, max(1, int(size*a)))
                 if abs(wob) > 0.5: ei = ei.rotate(wob, resample=Image.BICUBIC, expand=True)
                 cx = x0 + k*(size+gap) + size//2
@@ -248,17 +249,17 @@ def render_scene(sc, idx, dur, total_before, total, out, bg_icons):
             top_text = 520
         # --- headline: word-by-word pop ---
         for wi, (w, col, xc, yt) in enumerate(hwords):
-            a = ease_out_back((t - 0.25 - wi*0.07)/0.35)
+            a = ease_out_back((ta - 0.25 - wi*0.07)/0.35)
             if a <= 0: continue
             img = scaled(text_img(w, fh, col), a)
             paste_c(layer, img, xc, top_text + yt + fh.size*0.62)
-        a = ease_out((t - 0.5)/0.4)
+        a = ease_out((ta - 0.5)/0.4)
         if a > 0:
             yb = top_text + int(lh*len(hlines)) + 20 + int((1-a)*30)
             for li, line in enumerate(slines):
                 dr.text((W//2, yb + li*68), line, font=fsub, fill=(210, 235, 222, int(255*a)), anchor="mt")
         # --- scene entry: slide + fade ---
-        ea = ease_out(t/0.28)
+        ea = 1.0 if idx == 0 else ease_out(t/0.2)
         if ea < 1:
             layer.putalpha(layer.getchannel("A").point(lambda v, ea=ea: int(v*ea)))
             frame.alpha_composite(layer, (int((1-ea)*90), 0))
