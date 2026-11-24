@@ -1,0 +1,7 @@
+{"style":"talk","voice":"af_heart","speed":1.15,"mascot":"🥦","bg_icons":["🚶","🥦","🍽️","👟"],
+"scenes":[
+{"say":"Just ate? Don't sit down yet. Do this instead.","headline":"DON'T SIT DOWN YET","character":"🥦","with":["👟","🍽️"],"accent":"#B6F35C"},
+{"say":"A short, easy walk after meals can help lower your blood sugar spike.","headline":"WALK AFTER MEALS","items":[["👟","Easy pace"],["⏱️","10 minutes"],["🍽️","Right after eating"]],"accent":"#B6F35C"},
+{"say":"Even two to five minutes of light walking helps.","headline":"EVEN 2-5 MINUTES","emoji":["🍎","🥕"],"faces":true,"accent":"#FFC93C"},
+{"say":"So skip the couch. Take a quick stroll.","headline":"COUCH ➜ STROLL","swap":[["🛋️","Sit on the couch"],["🚶","Short stroll"]],"accent":"#B6F35C","footer":"Educational only. Not medical advice."}
+]}

@@ -1,0 +1,7 @@
+{"style":"kitchen","voice":"af_heart","speed":1.15,"mascot":"🥦","bg_icons":["🍳","🥑","🍅","🥚"],
+"scenes":[
+{"say":"Need a breakfast that keeps you full? Build this plate.","headline":"2-MINUTE BREAKFAST","character":"🥑","with":["🍳","🍅"],"accent":"#E07B28"},
+{"say":"Two eggs, half an avocado, tomato, and one slice of whole grain toast.","headline":"BUILD THE PLATE","plate":{"items":[["🥚","2 eggs"],["🥑","½ avocado"],["🍅","Tomato"],["🍞","Whole grain"]],"badges":[["PROTEIN","19g"],["FIBER","9g"]],"faces":true},"accent":"#3E9B4F"},
+{"say":"Cook the eggs, slice the rest, and you're done.","headline":"3 EASY STEPS","steps":[["🍳","Cook the eggs"],["🔪","Slice avocado + tomato"],["🍞","Toast the bread"]],"accent":"#E07B28"},
+{"say":"Protein and fiber first thing. Your morning will thank you.","headline":"SAVE THIS ONE","emoji":["🥚","🥑"],"faces":true,"accent":"#3E9B4F","footer":"Educational only. Not medical advice."}
+]}

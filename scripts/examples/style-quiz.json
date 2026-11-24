@@ -1,0 +1,7 @@
+{"style":"quiz","voice":"af_heart","speed":1.15,"mascot":"🥦","bg_icons":["🍪","❓","🍬"],
+"scenes":[
+{"say":"True or false? Sugar free cookies have no carbs.","quiz":{"statement":"Sugar-free cookies have no carbs.","character":["🍪","surprised"]}},
+{"say":"Myth! They're still made with flour, and flour is a carb.","headline":"STILL HAS CARBS","reveal":{"answer":"myth","statement":"Sugar-free cookies have no carbs"}},
+{"say":"Check the total carbs on the label, not just the sugar.","headline":"CHECK THE LABEL","items":[["🔍","Total carbs"],["🍽️","Serving size"],["🧾","Ingredients"]],"accent":"#FFD600"},
+{"say":"Sugar free doesn't mean carb free.","headline":"SUGAR-FREE ≠ CARB-FREE","character":"🍪","mood":"sad","footer":"Educational only. Not medical advice."}
+]}

@@ -1,0 +1,7 @@
+{"style":"fight","voice":"af_heart","speed":1.15,"mascot":"🥦","bg_icons":["🍿","🥔","🏈"],
+"scenes":[
+{"say":"Popcorn versus potato chips. Which snack wins game day?","headline":"POPCORN VS CHIPS","fight":{"left":["🍿","POPCORN"],"right":["🥔","CHIPS"]}},
+{"say":"Round one. Three cups of popcorn has about three times the fiber.","headline":"ROUND 1","fight":{"left":["🍿","POPCORN"],"right":["🥔","CHIPS"],"bars":[["FIBER","3.6","1.2","g","high"]]}},
+{"say":"Round two. And fewer calories for a much bigger bowl.","headline":"ROUND 2","fight":{"left":["🍿","POPCORN"],"right":["🥔","CHIPS"],"bars":[["CALORIES","93","152","","low"]]}},
+{"say":"The winner is air popped popcorn!","headline":"POPCORN WINS","fight":{"left":["🍿","POPCORN"],"right":["🥔","CHIPS"],"winner":"left"},"footer":"Educational only. Not medical advice."}
+]}

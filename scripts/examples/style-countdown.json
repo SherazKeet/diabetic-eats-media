@@ -1,0 +1,57 @@
+{
+ "style": "countdown",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "mascot": "🥦",
+ "bg_icons": [
+  "🥧",
+  "🍂",
+  "🦃"
+ ],
+ "scenes": [
+  {
+   "say": "Ranking Thanksgiving pies, from most carbs to fewest.",
+   "headline": "RANKING THE PIES",
+   "emoji": [
+    "🥧",
+    "🍎"
+   ],
+   "faces": true
+  },
+  {
+   "say": "Number three. Pecan pie, the sweetest slice.",
+   "headline": "PECAN PIE",
+   "sub": "Most sugar per slice",
+   "rank": {
+    "n": 3,
+    "of": 3,
+    "item": "🥧",
+    "mood": "sad"
+   }
+  },
+  {
+   "say": "Number two. Apple pie, still pretty sweet.",
+   "headline": "APPLE PIE",
+   "sub": "Middle of the pack",
+   "rank": {
+    "n": 2,
+    "of": 3,
+    "item": "🍎",
+    "mood": "happy"
+   }
+  },
+  {
+   "say": "Number one. Pumpkin pie has the fewest carbs.",
+   "headline": "PUMPKIN PIE",
+   "sub": "Fewest carbs per slice",
+   "rank": {
+    "n": 1,
+    "of": 3,
+    "item": "🥧",
+    "mood": "happy",
+    "talk": true
+   },
+   "footer": "Educational only. Not medical advice."
+  }
+ ]
+}
