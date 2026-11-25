@@ -1,0 +1,129 @@
+{
+ "style": "talk",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "mascot": "🥦",
+ "bg_icons": [
+  "🚶",
+  "👟",
+  "🍽️",
+  "🌙",
+  "🥦"
+ ],
+ "scenes": [
+  {
+   "say": "Just finished dinner? Don't sit down yet. Take a ten minute walk instead.",
+   "headline": "DON'T SIT DOWN YET",
+   "sub": "The 10-minute walk after dinner",
+   "character": "🥦",
+   "with": [
+    "👟",
+    "🍽️"
+   ],
+   "accent": "#B6F35C",
+   "mood": "surprised"
+  },
+  {
+   "say": "Head out soon after eating, keep an easy pace, and go for about ten minutes.",
+   "headline": "THE 10-MINUTE HABIT",
+   "items": [
+    [
+     "⏱️",
+     "Go soon after eating"
+    ],
+    [
+     "👟",
+     "Easy, chatty pace"
+    ],
+    [
+     "🚶",
+     "About 10 minutes"
+    ]
+   ],
+   "accent": "#B6F35C"
+  },
+  {
+   "say": "So swap the couch for a quick stroll around the block.",
+   "headline": "COUCH TO STROLL",
+   "swap": [
+    [
+     "🛋️",
+     "Couch after dinner"
+    ],
+    [
+     "🚶",
+     "Stroll the block"
+    ]
+   ],
+   "accent": "#FFC93C"
+  },
+  {
+   "say": "In a study of forty one adults with type two diabetes, walks after meals cut post meal blood sugar twelve percent.",
+   "headline": "SHORT WALKS WORK",
+   "sub": "Lower vs one 30-min walk a day",
+   "stat": [
+    [
+     "In study",
+     "41"
+    ],
+    [
+     "After meals",
+     "12%"
+    ]
+   ],
+   "accent": "#B6F35C"
+  },
+  {
+   "say": "But here's the surprise. Dinner was where the walk helped the most.",
+   "headline": "DINNER IS THE BIG ONE",
+   "emoji": [
+    "🍝",
+    "🍗"
+   ],
+   "faces": true,
+   "accent": "#FFC93C",
+   "mood": "surprised"
+  },
+  {
+   "say": "After dinner, blood sugar was twenty two percent lower. It's often our biggest carb meal.",
+   "headline": "22% LOWER AFTER DINNER",
+   "stat": [
+    [
+     "Lower after dinner",
+     "22%"
+    ]
+   ],
+   "accent": "#FF7A59"
+  },
+  {
+   "say": "No time for ten? Even two to five minutes of light walking helps, and standing beats sitting.",
+   "headline": "NO TIME? GO SHORT",
+   "items": [
+    [
+     "⏱️",
+     "Even 2-5 minutes"
+    ],
+    [
+     "🧍",
+     "Standing beats sitting"
+    ],
+    [
+     "🌙",
+     "Within an hour or so"
+    ]
+   ],
+   "accent": "#FFC93C"
+  },
+  {
+   "say": "So tonight, after dinner, put on your shoes and walk ten minutes. It's an easy win for blood sugar.",
+   "headline": "TONIGHT: WALK 10",
+   "character": "🥦",
+   "with": [
+    "👟"
+   ],
+   "accent": "#B6F35C",
+   "mood": "happy",
+   "footer": "Educational only. Not medical advice."
+  }
+ ]
+}
