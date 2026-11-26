@@ -1,0 +1,123 @@
+{
+ "style": "countdown",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "mascot": "🥦",
+ "bg_icons": [
+  "🥧",
+  "🍎",
+  "🍂",
+  "🦃",
+  "🥛"
+ ],
+ "scenes": [
+  {
+   "say": "Pecan, pumpkin, or apple? Ranking Thanksgiving pies from most sugar to least.",
+   "headline": "WHICH PIE WINS?",
+   "sub": "Ranked from most sugar to least",
+   "emoji": [
+    "🥧",
+    "🍎"
+   ],
+   "faces": true,
+   "mood": "surprised",
+   "accent": "#FFD600"
+  },
+  {
+   "say": "Number three. Pecan pie. Corn syrup and sugar make it the sweetest slice.",
+   "headline": "PECAN PIE",
+   "sub": "Most sugar of the three",
+   "rank": {
+    "n": 3,
+    "of": 3,
+    "item": "🥧",
+    "mood": "sad"
+   },
+   "accent": "#FFD600"
+  },
+  {
+   "say": "Per hundred grams, pecan has about fifty two grams of carbs. Pumpkin, about thirty five.",
+   "headline": "THE CARB GAP",
+   "sub": "Carbs per 100g, USDA data",
+   "stat": [
+    [
+     "PECAN PIE",
+     "52g"
+    ],
+    [
+     "PUMPKIN PIE",
+     "35g"
+    ]
+   ],
+   "accent": "#FFD600"
+  },
+  {
+   "say": "Number two. Pumpkin pie. Fewer carbs than pecan, plus protein from eggs and milk.",
+   "headline": "PUMPKIN PIE",
+   "sub": "A solid middle pick",
+   "rank": {
+    "n": 2,
+    "of": 3,
+    "item": "🥧",
+    "mood": "happy"
+   },
+   "accent": "#FFD600"
+  },
+  {
+   "say": "But here's the surprise. The winner isn't the one most people guess.",
+   "headline": "BUT WAIT...",
+   "sub": "Number one might surprise you",
+   "emoji": [
+    "🍎",
+    "🥧"
+   ],
+   "faces": true,
+   "mood": "surprised",
+   "accent": "#FFD600"
+  },
+  {
+   "say": "Number one. Apple pie. Carbs about the same as pumpkin, but usually the least sugar.",
+   "headline": "APPLE PIE",
+   "sub": "Least sugar of the three",
+   "rank": {
+    "n": 1,
+    "of": 3,
+    "item": "🍎",
+    "mood": "happy",
+    "talk": true
+   },
+   "accent": "#FFD600"
+  },
+  {
+   "say": "Whatever you pick, keep the slice small, have it after your meal, and go easy on toppings.",
+   "headline": "ENJOY IT SMARTER",
+   "items": [
+    [
+     "🔪",
+     "Keep the slice small"
+    ],
+    [
+     "🍽️",
+     "Have it after the meal"
+    ],
+    [
+     "🍦",
+     "Go easy on toppings"
+    ]
+   ],
+   "accent": "#FFD600"
+  },
+  {
+   "say": "A small slice of apple pie, after dinner. That's the winning Thanksgiving move.",
+   "headline": "THE WINNING SLICE",
+   "sub": "Small slice, after the meal",
+   "character": "🍎",
+   "with": [
+    "🥧"
+   ],
+   "mood": "happy",
+   "accent": "#FFD600",
+   "footer": "Educational only. Not medical advice."
+  }
+ ]
+}
