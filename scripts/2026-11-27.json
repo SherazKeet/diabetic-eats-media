@@ -1,0 +1,105 @@
+{
+ "style": "quiz",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "mascot": "🥦",
+ "bg_icons": [
+  "🍎",
+  "🍓",
+  "🫐",
+  "🍇",
+  "❓"
+ ],
+ "scenes": [
+  {
+   "say": "True or false? If you have diabetes, fruit is off the menu.",
+   "headline": "TRUE OR FALSE?",
+   "quiz": {
+    "statement": "Fruit is bad if you have diabetes.",
+    "label": "TRUE OR FALSE?",
+    "character": [
+     "🍎",
+     "surprised"
+    ]
+   },
+   "accent": "#FFD600"
+  },
+  {
+   "say": "Myth! The American Diabetes Association says you can eat fruit. Just count the carbs.",
+   "headline": "FRUIT CAN FIT",
+   "sub": "Count it as part of your carbs",
+   "reveal": {
+    "answer": "myth",
+    "statement": "Fruit is bad for diabetes"
+   },
+   "accent": "#FFD600"
+  },
+  {
+   "say": "Whole fruit brings fiber. A cup of raspberries has about fifteen grams of carbs and eight of fiber.",
+   "headline": "1 CUP RASPBERRIES",
+   "sub": "Fiber helps fill you up",
+   "stat": [
+    [
+     "CARBS",
+     "15g"
+    ],
+    [
+     "FIBER",
+     "8g"
+    ]
+   ],
+   "accent": "#FFD600"
+  },
+  {
+   "say": "Round two is the sneaky one. Dried fruit is just as good as fresh?",
+   "headline": "ROUND TWO",
+   "quiz": {
+    "statement": "Dried fruit equals fresh fruit.",
+    "label": "ROUND TWO",
+    "character": [
+     "🍇",
+     "surprised"
+    ]
+   },
+   "accent": "#FFD600"
+  },
+  {
+   "say": "Myth! Two tablespoons of raisins has about the same carbs as a whole cup of raspberries.",
+   "headline": "DRIED IS DENSE",
+   "sub": "2 tbsp raisins = about 15g carbs",
+   "reveal": {
+    "answer": "myth",
+    "statement": "Dried fruit equals fresh fruit"
+   },
+   "accent": "#FFD600"
+  },
+  {
+   "say": "Swap the raisins for a bowl of fresh berries. Way more to eat for your carbs.",
+   "headline": "SMART SWAP",
+   "swap": [
+    [
+     "🍇",
+     "Handful of raisins"
+    ],
+    [
+     "🫐",
+     "Bowl of berries"
+    ]
+   ],
+   "faces": true,
+   "accent": "#FFD600"
+  },
+  {
+   "say": "Fruit isn't the enemy. Whole fruit, sensible portion, pair it with protein, and it fits.",
+   "headline": "FRUIT IS NOT THE ENEMY",
+   "character": "🍎",
+   "with": [
+    "🫐",
+    "🍓"
+   ],
+   "mood": "happy",
+   "accent": "#FFD600",
+   "footer": "Educational only. Not medical advice."
+  }
+ ]
+}
