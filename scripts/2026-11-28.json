@@ -1,0 +1,64 @@
+{
+ "style": "kitchen",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "mascot": "🥦",
+ "bg_icons": ["🍳", "🥑", "🍅", "🥚", "🥯"],
+ "scenes": [
+  {
+   "say": "Stop starting your day with a plain bagel. It packs about fifty six grams of carbs.",
+   "headline": "STOP EATING THIS FOR BREAKFAST",
+   "sub": "1 plain bagel: about 56g carbs",
+   "character": "🥯",
+   "mood": "surprised",
+   "accent": "#D64545"
+  },
+  {
+   "say": "The mistake is carbs with almost no fiber. Swap it for a protein plate instead.",
+   "headline": "BREAKFAST MISTAKE",
+   "swap": [["🥯", "Bagel alone"], ["🍳", "Protein plate"]],
+   "faces": true,
+   "accent": "#E07B28"
+  },
+  {
+   "say": "Two eggs, half an avocado, tomato, and one slice of whole grain toast.",
+   "headline": "BUILD THE PLATE",
+   "plate": {
+    "items": [["🥚", "2 eggs"], ["🥑", "½ avocado"], ["🍅", "Tomato"], ["🍞", "1 whole grain"]],
+    "badges": [["PROTEIN", "19g"], ["FIBER", "9g"]],
+    "faces": true
+   },
+   "accent": "#3E9B4F"
+  },
+  {
+   "say": "And here's the best part. It takes about five minutes. Cook the eggs, slice the rest, toast the bread.",
+   "headline": "READY IN 5 MINUTES",
+   "steps": [["🍳", "Cook 2 eggs"], ["🔪", "Slice avocado, tomato"], ["🍞", "Toast 1 slice"]],
+   "accent": "#E07B28"
+  },
+  {
+   "say": "Why it works: the bagel has just two grams of fiber. This plate has about nine, plus nineteen grams of protein.",
+   "headline": "WHY IT WORKS",
+   "sub": "Protein and fiber help keep you full",
+   "stat": [["BAGEL FIBER", "2g"], ["PLATE FIBER", "9g"]],
+   "accent": "#3E9B4F"
+  },
+  {
+   "say": "No time for eggs? Plain Greek yogurt with berries and a few nuts works too.",
+   "headline": "NO EGGS? TRY THIS",
+   "sub": "Plain, not flavored",
+   "emoji": ["🫐", "🥛", "🥜"],
+   "faces": true,
+   "accent": "#E07B28"
+  },
+  {
+   "say": "Protein and fiber first, carbs on the side. Save this for tomorrow morning.",
+   "headline": "PROTEIN FIRST, CARBS ON THE SIDE",
+   "character": "🥚",
+   "with": ["🥑", "🍅"],
+   "mood": "happy",
+   "accent": "#3E9B4F",
+   "footer": "Educational only. Not medical advice."
+  }
+ ]
+}
